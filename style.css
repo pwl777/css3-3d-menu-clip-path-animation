@@ -1,0 +1,137 @@
+/* ------ CSS Style Sheet - 3D Menu Clip-Path Animation ------ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: #e1d298;
+    background-image: url("data:image/svg+xml,%3Csvg width='32' height='26' viewBox='0 0 32 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14 0v3.994C14 7.864 10.858 11 7 11c-3.866 0-7-3.138-7-7.006V0h2v4.005C2 6.765 4.24 9 7 9c2.756 0 5-2.236 5-4.995V0h2zm0 26v-5.994C14 16.138 10.866 13 7 13c-3.858 0-7 3.137-7 7.006V26h2v-6.005C2 17.235 4.244 15 7 15c2.76 0 5 2.236 5 4.995V26h2zm2-18.994C16 3.136 19.142 0 23 0c3.866 0 7 3.138 7 7.006v9.988C30 20.864 26.858 24 23 24c-3.866 0-7-3.138-7-7.006V7.006zm2-.01C18 4.235 20.244 2 23 2c2.76 0 5 2.236 5 4.995v10.01C28 19.765 25.756 22 23 22c-2.76 0-5-2.236-5-4.995V6.995z' fill='%23ffffff' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E");
+    filter: drop-shadow(-1px 9px 6px rgba(166, 155, 114, 0.5));
+}
+h1 {
+    font-family: 'Londrina Solid', cursive; /* font-family: 'Bungee Shade', cursive; | font-family: 'Ribeye Marrow', cursive; | font-family: 'Londrina Outline', cursive; | font-family: 'Londrina Shadow', cursive; | font-family: 'Londrina Sketch', cursive;  | font-family: 'Cabin Sketch', cursive;  */
+    color: white;
+    filter: drop-shadow(-1px 6px 3px rgba(166, 155, 114, 0.5));
+    font-size: 3.5rem;
+    text-align: center;
+    margin-top: 70px;
+}
+.container {
+    width: 200px;
+    height: 200px;
+    perspective: 700px;
+    margin: 250px auto;
+}
+.box {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: rotateX(-20deg) rotateY(30deg);
+    background-color: #e1d298; /*  Remove bg color at the end */
+}
+.side {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background-color: rgba(225, 210, 152, .5);
+}
+.side--front {
+    transform: rotateY(0) translateZ(100px);
+    background-color: #c8b464;
+}
+.side--left {
+    transform: rotateY(-90deg) translateZ(100px);
+    background-color: #d8c98d;
+}
+.side--top {
+    transform: rotateX(90deg) translateZ(100px);
+    background-color: #f4e8bb;
+}
+.head {
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    background-color: #e1d298; /* #e7d6ff | #d8bdff  */
+    padding: 5px;
+    position: absolute;
+    right: 350px;
+    bottom: 215px;
+    z-index: 2;
+    transition: .3s;
+}
+.face {
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+    background-color: rgb(195, 42, 162);
+    position: relative;
+    z-index: 3;
+}
+button {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+    color: white;
+    width: 100%;
+    font-family: 'Londrina Solid', cursive;
+    font-size: 40px;
+    filter: drop-shadow(-1px 6px 3px rgba(50, 50, 50, 0.5));
+    transition: .5s;
+    transform-origin: left;
+    text-align: left;
+    padding-left: 20px;
+}
+button:hover {
+    padding-left: 210px;
+}
+.shape {
+    width: 400px;
+    height: 500px;
+    position: absolute;
+    left: -300px;
+    top: -100px;
+    background-color: rgb(195, 42, 162);
+    z-index: -10;
+    transition: .3s;
+    clip-path: polygon(130px 46px,134px 60px,129px 69px,124px 81px,140px 83px,154px 86px,160px 93px,167px 143px,166px 153px,163px 175px,162px 183px,160px 193px,152px 195px,149px 192px,148px 183px,149px 175px,153px 153px,153px 143px,148px 105px,147px 117px,146px 141px,144px 174px,144px 199px,144px 232px,144px 242px,144px 251px,144px 295px,134px 297px,123px 294px,123px 249px,123px 240px,123px 232px,121px 178px,118px 178px,113px 232px,112px 241px,111px 249px,107px 297px,94px 299px,83px 294px,87px 249px,88px 239px,89px 229px,92px 200px,95px 171px,96px 139px,95px 114px,94px 103px,85px 144px,86px 155px,88px 176px,89px 185px,90px 194px,82px 199px,76px 194px,75px 186px,75px 177px,70px 155px,69px 144px,80px 88px,87px 82px,99px 81px,115px 81px,112px 69px,107px 59px,109px 46px,120px 40px); 
+}
+button:nth-child(1):hover ~ .shape {
+    clip-path: polygon(143px 58px,145px 68px,143px 76px,139px 85px,147px 87px,159px 91px,171px 94px,185px 97px,214px 100px,225px 97px,234px 98px,252px 100px,252px 106px,234px 104px,230px 113px,216px 115px,200px 113px,180px 110px,149px 104px,145px 121px,143px 144px,144px 164px,155px 192px,171px 234px,171px 240px,171px 249px,171px 296px,159px 301px,147px 296px,150px 249px,150px 241px,148px 233px,128px 190px,123px 185px,118px 233px,116px 243px,113px 253px,102px 297px,90px 301px,77px 296px,87px 246px,90px 235px,92px 226px,94px 207px,95px 188px,93px 161px,96px 135px,103px 100px,81px 120px,80px 132px,82px 145px,89px 155px,86px 166px,78px 170px,70px 167px,66px 157px,66px 147px,63px 132px,63px 117px,93px 88px,99px 82px,106px 80px,125px 82px,121px 76px,119px 65px,123px 56px,134px 51px);
+}
+button:nth-child(2):hover ~ .shape {
+    clip-path: polygon(152px 58px,155px 67px,153px 78px,144px 85px,158px 89px,165px 93px,173px 102px,185px 112px,216px 118px,225px 115px,235px 115px,251px 118px,251px 123px,236px 121px,229px 132px,213px 131px,196px 128px,180px 125px,158px 109px,153px 122px,145px 136px,141px 149px,161px 193px,176px 234px,177px 240px,175px 250px,170px 299px,159px 301px,147px 298px,154px 249px,154px 241px,152px 233px,131px 194px,125px 188px,125px 233px,123px 245px,120px 254px,102px 300px,87px 301px,78px 294px,96px 249px,99px 240px,99px 230px,97px 207px,96px 185px,93px 158px,99px 129px,110px 102px,140px 112px,160px 124px,171px 129px,189px 131px,208px 135px,208px 141px,189px 139px,186px 147px,174px 147px,135px 132px,105px 124px,104px 96px,106px 86px,116px 81px,130px 82px,125px 70px,125px 61px,132px 54px,142px 52px);
+    
+}
+button:nth-child(3):hover ~ .shape {
+    clip-path: polygon(143px 50px,146px 63px,143px 72px,134px 87px,147px 90px,158px 93px,165px 100px,189px 124px,196px 130px,209px 139px,216px 143px,244px 156px,244px 161px,228px 155px,224px 160px,214px 160px,196px 148px,179px 136px,152px 114px,149px 125px,146px 145px,149px 181px,152px 206px,155px 240px,156px 249px,153px 258px,144px 297px,132px 299px,122px 294px,131px 255px,132px 247px,132px 239px,127px 192px,123px 192px,120px 236px,119px 244px,118px 253px,107px 299px,93px 301px,83px 294px,92px 250px,94px 241px,94px 232px,96px 206px,93px 187px,93px 144px,97px 122px,100px 109px,82px 139px,82px 149px,83px 168px,86px 176px,83px 190px,76px 190px,68px 187px,68px 179px,68px 169px,67px 150px,66px 140px,89px 92px,95px 85px,105px 85px,123px 86px,119px 73px,116px 61px,120px 49px,131px 46px); 
+}
+button:nth-child(4):hover ~ .shape {
+    clip-path: polygon(139px 47px,138px 61px,134px 69px,129px 81px,140px 83px,152px 86px,159px 93px,181px 136px,193px 159px,198px 163px,204px 175px,212px 190px,207px 192px,197px 177px,188px 179px,183px 169px,180px 160px,167px 140px,151px 107px,150px 119px,149px 141px,148px 174px,147px 198px,145px 232px,145px 241px,145px 251px,143px 295px,133px 297px,122px 294px,124px 248px,124px 239px,124px 232px,125px 178px,122px 178px,115px 232px,114px 241px,113px 249px,107px 297px,94px 299px,83px 294px,88px 249px,89px 239px,90px 229px,93px 200px,96px 172px,98px 139px,99px 113px,100px 103px,82px 139px,82px 149px,83px 168px,86px 176px,83px 190px,76px 190px,68px 187px,68px 179px,68px 169px,67px 150px,66px 140px,87px 85px,93px 82px,99px 81px,119px 81px,118px 70px,115px 60px,115px 46px,127px 40px); 
+}
+
+button:nth-child(1):hover ~ .head {
+    right: 340px;
+    bottom: 212px;
+}
+button:nth-child(2):hover ~ .head {
+    right: 335px;
+    bottom: 210px;
+}
+button:nth-child(3):hover ~ .head {
+    right: 340px;
+    bottom: 210px;
+}
+button:nth-child(4):hover ~ .head {
+    right: 343px;
+    bottom: 214px;
+}
+
+
+
+
